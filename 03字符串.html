@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+		<h2>使用字符串模板———`*** ${} ***`，连接字符串，比原来的用引号和加号连接更方便</h2>
+		<script type="text/javascript">
+			let name = '严肃';
+			let job = "前端"
+			let str = `姓名${name}，工作${job}`
+			
+			document.write(str)
+		</script>
+		<!--**********************************************-->
+		
+		<h2>实例</h2>
+		<ul id="ul1">
+			<li>
+				<span>空</span>
+				<span>空</span>
+				<a href="JavaScript:;">空</a>
+			</li>
+			<li>
+				<span>空</span>
+				<span>空</span>
+				<a href="JavaScript:;">空</a>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			let data =[
+				{title:'标题一', read:100},
+				{title:'标题二', read:100},
+				{title:'标题三', read:100},
+				{title:'标题四', read:100},
+				{title:'标题五', read:100},
+			]
+			window.onload=function(){
+				let oul = document.getElementById('ul1')
+				
+				//for 循环
+				for(let i=0; i<data.length; i++){
+					let oli = document.createElement('li')
+//					
+////					oli.innerHTML='<span>'+ data[i].title +'</span>'
+////									+'<span>'+ data[i].read +'</span>'
+////									+'<a href="JavaScript:;">更多</a>'
+//
+//					//使用字符串模板，根据数组循环创建
+					oli.innerHTML=`<span>标题: ${data[i].title}</span>
+									<span>阅读人数: ${data[i].read}</span>
+									<a href="JavaScript:;">更多</a>`
+					oul.appendChild(oli)	
+					
+				}
+
+
+				//jq 方法，数组写入，需要先在html中写好足够数量的空标签
+//				$('li').each(function(i){
+//					$(this).find('span').eq(0).html(`标题：${data[i].title}`)
+//					$(this).find('span').eq(1).html(`阅读量：${data[i].read}`)
+//					$(this).find('a').html(`${i+1}更多`)
+//				})
+
+
+
+				//有问题
+//				data.forEach(function(i){
+//					oli.innerHTML=`<span>标题: ${data[i].title}</span>
+//									<span>阅读人数: ${data[i].read}</span>
+//									<a href="JavaScript:;">更多</a>`
+//					oul.appendChild(oli)
+//				})
+				
+
+			}
+		</script>
+		<hr />
+		<hr />
+		<hr />
+		<!--**************************************************************-->
+		
+		
+		11111111111111111111111111111111111111111111111111111111111111111111
+		<h2>字符串查找----------aaa.includes(要找的东西)</h2>
+		<h4>区分大小写！！！！！</h4>
+		<p>aaa.indexOf(要找的东西)， 返回索引位置，找到返回 0，没找到返回 -1</p>
+		<script>
+			let aaa = 'apple banner orange';
+			if (aaa.indexOf('apple')==-1) {
+				document.write('没有苹果')
+			} else{
+				document.write('有苹果')
+			}
+		</script>
+		<hr />
+		
+		<p>aaa.includes(要找的东西)，返回值：true/false</p>
+		<script type="text/javascript">
+			document.write(`是否有苹果?------${aaa.includes('apple')}`)
+			
+		</script>
+		<hr />
+		<hr />
+		<hr />
+		<!--***************************************************************-->
+		
+		<h2>includes 例子：判断浏览器</h2>
+		<script type="text/javascript">
+			if (navigator.userAgent.includes('Chrome')) {
+				document.write('是chrome')
+			} else{
+				document.write('不是chrome')	
+			}
+		</script>
+		<hr />
+		<hr />
+		<!--*****************************************************************-->
+		
+		
+		2222222222222222222222222222222222222222222222222222222222222222222222
+		<h3>字符串是否以谁开头-------str.startsWith(要检测的内容)</h3>
+		<script type="text/javascript">
+			let bbb = 'https://www.baidu.com/'
+			
+			document.write(`是否以https开头: ${bbb.startsWith('https')}`)
+		</script>
+		<hr />
+		
+		
+		33333333333333333333333333333333333333333333333333333333333333333333
+		<h3>字符串是否以谁结尾-------str.endsWith(要检测的内容)</h3>
+		<hr />
+		
+		
+		444444444444444444444444444444444444444444444444444444444444444444
+		<h3>重复字符串-----str.repeat(次数)--------es7</h3>
+		<i>前端</i>
+		<script type="text/javascript">
+			let ccc= '前端'
+			let ddd = $("<li>前端</li>")
+			
+//			document.write(ddd.repeat(100))
+			$('body').append(ccc.repeat(2))
+		</script>
+		<hr />
+		
+		
+		
+	</body>
+</html>
