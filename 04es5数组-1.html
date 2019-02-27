@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+        <script>
+            let arr1 = ['aaa', 'bbb', 'ccc', 'ddd']
+            // es5 里新增的***********************************************
+            // arr.forEach()    代替 for 循环
+            console.log('arr.forEach()----------------------------------循环')
+            arr1.forEach(function(val, index, arr){
+                console.log('内容：'+val, '下标：'+index, '数组：'+ arr)
+            })
+            // arr.fotEach(callback, this), this改变指向, 默认 window
+            // 同样的还有map、filter、some、every
+            arr1.forEach(function(val, index, arr){
+                console.log(this, val, index, arr)
+            }, 'abc')
+            // 使用箭头函数时，this指向无法改变，因为箭头函数默认指向当前定义的位置
+            arr1.forEach((val, index, arr)=>{
+                console.log(this)
+            }, 'abc')
+
+
+
+
+            // arr.map() 
+            // 正常情况下需要配合return，返回一个新的数组，重新整理数据结构
+            // 如果没有return，相当于forEach
+            console.log('arr.map()----------------------------------重构')
+            let arr2 = [
+                {name:'user1', job:'前端', age:30},
+                {name:'user2', job:'前端', age:30},
+                {name:'user3', job:'前端', age:30},
+                {name:'user4', job:'前端', age:30},
+            ]
+            let newArr2 = arr2.map((val, index, arr)=>{
+                // console.log(val, index, arr)
+                let a = {}
+                a.name = `id${index}`
+                a.job = 'web前端'
+                a.age= val.age + index
+                return a
+            })
+            console.log(newArr2)
+
+
+
+
+            // arr.filter()  过滤，如果返回的时true，则保留
+            console.log('arr.filter--------------------------------------过滤')
+            let arr3 = [
+                {name:'user1', job:'前端', age:30, hot:true},
+                {name:'user2', job:'前端', age:30, hot:true},
+                {name:'user3', job:'前端', age:30, hot:false},
+                {name:'user4', job:'前端', age:30, hot:false},
+            ]
+            let newArr3 = arr3.filter((val, index, arr)=>{
+                // return val.name == 'user1'
+                return val.hot
+            })
+            console.log(newArr3)
+
+
+
+            // arr.some()  类似于查找，数组里只要某一个元素符合条件就返回true
+            console.log('arr.some()-------------------------------------查找，只要有一个满足就返回true')
+            let arr4 = ['apple', 'banana', 'orange']
+            let a4 = arr4.some((val, index, arr)=>{
+                return val=='banana'
+            })
+            console.log(a4)
+            
+            // arr.every()  数组每一项都满足才返回true
+            console.log('arr.every-------------------------------每一项都满足才返回true')
+            let arr5 = [1,2,3,4,5]
+            let a5 = arr5.every((val, index, arr)=>{
+                return val>0
+            }) 
+            console.log(a5)
+
+        </script>
+		
+	</body>
+</html>

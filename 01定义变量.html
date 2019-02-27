@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<p>let----相当于之前的 var ，会计作用域，只能在 {} 中使用</p>
-		<p>1.没有预解析，不存在变量提升，必须先定义再使用</p>
-		<script type="text/javascript">
-			let a = 'a111'
-			let b = 'b111'
-			function fn(){
-				//-------------------------------正确
-				let a = 'a222'
-				console.log(a);
-				
-				//--------------------------------报错
-				console.log(b);
-				let b = 'bbb'
-			}
-			fn()
-		</script>
-		
-		<p>2.同一个作用域里不能重复定义变量，var 对一个变量两次定义会覆盖，let 会报错</p>
-		<script type="text/javascript">
-			//--------------------------------报错
-			let c = 'c111'
-			let c = 'c222'
-			
-			console,log(c)
-		</script>
-		
-		
-		
-		<p>3.for循环，for循环里面是父级作用域</p>
-		<input type="button" name="" id="" value="aaa" />
-		<input type="button" name="" id="" value="bbb" />
-		<input type="button" name="" id="" value="ccc" />
-		<script type="text/javascript">
-			var input = document.querySelectorAll('input')
-			
-			for (let i=0;i<input.length;i++) {
-				input[i].onclick=function(){
-					console.log(i)
-				}
-			}
-		</script>
-		
-		
-		
-		
-		
-		
-		
-		<hr />
-		<!--*********************************************-->
-		<p>const-------特性和let一样，</p>
-		<p>定义的变量不能修改，也不能先定义后赋值，但数组可以添加</p>
-		<script type="text/javascript">
-			//--------------------------------报错
-			const d = "d111"
-			d = "d222"
-			console.log(d)
-			
-			//--------------------------------正确
-			const e = ['aaa','bbb']
-			e.push('ccc')
-			console.log(e)
-		</script>
-		
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <p>let----相当于之前的 var ，块级作用域，只能在 {} 中使用，不能重复定义</p>
+    <p>1.没有预解析，不存在变量提升，必须先定义再使用</p>
+    <script type="text/javascript">
+        let a = 'a111'
+        let b = 'b111'
+        let c = 'ccc'
+		console.log(a)
+        function fn() {
+            //-------------------------------正确
+            let a = 'a222'
+            console.log(a);
+
+            //--------------------------------报错
+            console.log(b);
+            // let b = 'bbb'
+
+            console.log(c)
+        }
+        fn()
+    </script>
+
+    <p>2.同一个作用域里不能重复定义变量，var 对一个变量两次定义会覆盖，let 会报错</p>
+    <script type="text/javascript">
+        //--------------------------------报错
+        let c = 'c111'
+        let c = 'c222'
+
+        console.log(c)
+    </script>
+
+
+
+    <p>3.for循环，for循环里面是父级作用域</p>
+    <input type="button" name="" id="" value="aaa" />
+    <input type="button" name="" id="" value="bbb" />
+    <input type="button" name="" id="" value="ccc" />
+    <script type="text/javascript">
+        var input = document.querySelectorAll('input')
+
+        for (let i = 0; i < input.length; i++) {
+            input[i].onclick = function() {
+                console.log(i)
+            }
+        }
+    </script>
+
+
+
+
+	
+
+
+    <hr />
+    <!--*********************************************-->
+    <p>const-------特性和let一样，</p>
+    <p>定义的变量不能修改，也不能先定义后赋值，但数组可以添加</p>
+    <script type="text/javascript">
+        //--------------------------------报错
+        const d = "d111"
+        d = "d222"
+        console.log(d)
+
+        //--------------------------------正确
+        const e = ['aaa', 'bbb']
+        e.push('ccc')
+        console.log(e)
+    </script>
+
+</body>
+
 </html>

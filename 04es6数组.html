@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+        <script>
+            let aaa = [111, 222, 333, 444, 5555]
+            // 循环内容
+            for (let val of aaa) {
+                console.log(val)
+            }
+
+            // 循环索引--------------arr.keys()数组的下标
+            for (let index of aaa.keys()) {
+                console.log(index)
+            }
+
+
+            // 同时循环内容和索引----------arr.entries()数组的每一项
+            for (let item of aaa.entries()) {
+                console.log(item)
+            }
+
+            for (let [index, val]  of aaa.entries()) {
+                console.log(index, val)
+            }
+        </script>
+		
+	</body>
+</html>

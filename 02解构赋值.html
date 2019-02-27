@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	
-	<body>
-		<p>解构赋值，左右两边结构格式要保持一致</p>
-		<p>let [a, [b, c] ] = [1, [2, 3] ]</p>
-		<p>document.write(a, b ,c)</p>
-		<script type="text/javascript">
-			let [a, [b, c] ] = [1, [2, 3] ]
-			document.write(a,b,c)
-		</script>
-		<hr />
-		
-		<p>可以赋默认值，如果后面有数据，则以后面的为准</p>
-		<p>let [aa, bb, cc='暂无....'] = ['aa', 'bb', ]</p>
-		<p>document.write(aa, bb, cc)</p>
-		<script type="text/javascript">
-			let [aa, bb, cc='暂无....'] = ['aa', 'bb', ]
-			document.write(aa, bb, cc)
-		</script>
-		<hr />
-		<hr />
-		
-		<h3>交换数据位置</h3>
-		<p>[aaa, bbb] = [bbb, aaa]</p>
-		<script type="text/javascript">
-			let aaa = 'aaaaaa';
-			let bbb = 'bbbbbb';
-			
-			[aaa, bbb] = [bbb, aaa]
-			document.write('aaa=' + aaa + '---bbb=' + bbb)
-		</script>
-		<hr />
-		<hr />
-		
-		<!--************************************************************-->
-		<h2>用结构赋值处理json</h2>
-		<hr />
-		<p>可以给json中的数据起个别名，但后面也展示也必须用别名</p>
-		<p>let {name, gender, job:job1} = {
-											name:'严肃',
-											gender:'男',
-											job:'攻城狮'
-										}</p>
-		<p>document.write(name, gender, job1)</p>
-		
-		<script type="text/javascript">
-			let {name, gender, job:job1} = {
-											name: '严肃',
-											gender: '男',
-											job: '攻城狮'
-										}
-			document.write(name, gender, job1)
-		</script>
-		
-		
-		<hr />
-		<h3>结构赋值函数中灵活运用</h3>
-		<p>函数传参</p>
-		<script type="text/javascript">
-			function show({d,e,f='f暂无......'}){
-				document.write(d, e, f)
-			}
-			show({
-				d: 'ddd',
-				e: 'eee',
-			})
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <p>解构赋值，左右两边结构格式要保持一致</p>
+    <p>let [a, [b, c] ] = [1, [2, 3] ]</p>
+    <p>document.write(a, b ,c)</p>
+    <script type="text/javascript">
+        let [a, [b, c]] = [1, [2, 3]]
+        document.write(a, b, c)
+    </script>
+    <hr />
+
+    <p>可以赋默认值，如果后面有数据，则以后面的为准</p>
+    <p>let [aa, bb, cc='暂无....'] = ['aa', 'bb', ]</p>
+    <p>document.write(aa, bb, cc)</p>
+    <script type="text/javascript">
+        let [aa, bb, cc = '暂无....'] = ['aa', 'bb', ]
+        document.write(aa, bb, cc)
+    </script>
+    <hr />
+    <hr />
+
+    <h3>交换数据位置</h3>
+    <p>[aaa, bbb] = [bbb, aaa]</p>
+    <script type="text/javascript">
+        let aaa = 'aaaaaa';
+        let bbb = 'bbbbbb';
+
+        [aaa, bbb] = [bbb, aaa]
+        document.write('aaa=' + aaa + '---bbb=' + bbb)
+    </script>
+    <hr />
+    <hr />
+
+    <!--************************************************************-->
+    <h2>用结构赋值处理json</h2>
+    <hr />
+    <p>可以给json中的数据起个别名，但后面也展示也必须用别名</p>
+    <p>let {name, gender, job:job1} = { name:'ys', gender:'nan', job:'it' }
+    </p>
+    <p>document.write(name, gender, job1)</p>
+
+    <script type="text/javascript">
+        let {
+            name,
+            gender,
+            job: job1
+        } = {
+            name: 'ys',
+            gender: 'nan',
+            job: 'it'
+        }
+        document.write(name, gender, job1)
+    </script>
+
+
+    <hr />
+    <h3>结构赋值函数中灵活运用</h3>
+    <p>函数传参</p>
+    <script type="text/javascript">
+        function show({ d, e, f = 'f暂无......' }) {
+            document.write(d, e, f)
+        }
+        show({ d: 'ddd', e: 'eee'})
+    </script>
+</body>
+
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+        <script>
+            // arr.reduce()  求数组的和、阶乘。。。。。。从左往右
+            // prev:上一个的结果，cur:当前值
+            let aaa = [1,2,3,4,5,6,7,8,9,10]
+            let aaa1 = aaa.reduce((prev, cur, index, arr)=>{
+                console.log(index,prev,cur)
+                return prev+cur
+            })
+            console.log(aaa1)
+
+
+            // arr.reduceRight  ...................从右往左
+        </script>
+		
+	</body>
+</html>
