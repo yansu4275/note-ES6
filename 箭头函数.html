@@ -8,7 +8,9 @@
 </head>
 
 <body>
-    <button class="aaa">箭头函数</button>
+    <p>1：this问题，指向定义函数所在的对象，不再是运行时所在的对象</p>
+    <p>2：箭头函数里没有arguments，用 ...arr </p>
+    <p>3：箭头函数不能当构造函数</p>
 </body>
 
 </html>
@@ -26,16 +28,51 @@
 
 
 
-
-
-
-
-    $('.aaa').click(() => {
-        console.log(this)
-    })
-
-
-    // ********************
+    // ***************************************************  箭头函数
     var p = name => 'hello ' + name
     console.log(p('你好'))
+
+    // 箭头前是参数，箭头后是return或者语句
+    // function aaa(a, b) {
+    //     return a+b
+    // }
+    let aaa = (a, b) => a+b
+    console.log(aaa(5, 7))
+
+    let bbb = (a=5, b=7) => {
+        console.log(a, b)
+    }
+    bbb()
+
+
+    // this的指向
+    let json = {
+        id:1,
+        show: function () {
+            setTimeout(()=>{
+                console.log('this指向定义这个函数所在的对象，而不是运行时所在的对象', this.id)
+            },1000)
+        }
+    }
+    json.show()
+
+    // 箭头函数没有arguments
+    // function ccc(){
+    //     console.log(arguments)
+    // }
+    let ccc = (...a) =>{
+        console.log('箭头函数没有arguments，用...arr代替', ...a)
+    } 
+    ccc(1,2,3,4,5)
+
+
+    // 箭头函数不能当构造函数
+    // function ddd(){
+    //     this.name = 'abc'
+    // }
+    let ddd = ()=>{
+        this.name = 'abc'
+    }
+    let ddd1 = new ddd()
+    console.log(ddd1.name)
 </script>

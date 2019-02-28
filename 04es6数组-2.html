@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.2.0.js"></script>
+	</head>
+	<body>
+        <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+        <script>
+            // ...-------------------------------------扩展运算符
+            console.log('...  -------------------------------展开/收缩运算符')
+            let ccc = ['aaa','bbb','ccc']
+            console.log(ccc)
+            console.log('展开', ...ccc)
+
+            function ccc1(...a){
+                console.log('收缩', a)
+            }
+            ccc1(1,2,3,4)
+
+
+
+            // Array.from()--------------------复制数组，将类数组转成数组
+            console.log('Array.from()-----------------复制数组，将类数组转成数组')
+            // 类数组：有 length，比如arguments，标签组
+            let lis = document.querySelectorAll('ul li')
+            console.log('类数组', lis)
+            let lis1 = Array.from(lis)
+            console.log(lis1)
+
+            let ddd = [111,222,333,444,555]
+            let ddd1 = Array.from(ddd)
+            // let ddd1 = [...ddd]
+
+            ddd1.pop()
+            console.log(ddd1)
+
+
+
+            // Array.of()-----------------------将一组值转成数组
+            console.log('Array.of()-----------------------将一组值转成数组')
+            let eee = Array.of('apple', 'banana', 'orange')
+            console.log(eee)
+
+
+            // arr.find()-------------------------查找第一个满足条件的内容
+            console.log('arr.find()-------------------查找第一个满足条件的内容，没找到返回underfind')
+            let fff = [1,2,3,4,5]
+            let fff1 = fff.find((val, index, arr)=>{
+                return val>2
+            })
+            console.log(fff1)
+
+
+            // arr.findIndex()-------------------------查找第一个满足条件内容的位置
+            console.log('arr.findIndex()-------------查找第一个满足条件内容的位置，没找返回-1')
+            let fff2 = fff.findIndex((val, index, arr)=>{
+                return val>2
+            })
+            console.log(fff2)
+
+
+            // arr.fill(填充的东西，开始位置，结束位置)-------------------填充/修改
+            console.log('arr.fill()---------------------------------填充/修改')
+            // let ggg = new Array(10)
+            let ggg = [1,2,3,4,5,6,7,8,9]
+            ggg.fill('内容', 1, 3)
+            console.log(ggg)
+
+
+            // arr.includes()----------------------------------判断是否有某内容
+            console.log('arr.includes()----------------------------------判断是否有某内容，类似字符串的 indexOf')
+            let hhh = [111, 222, 333, 444, 555]
+            let hhh1 = hhh.includes(111)
+            console.log(hhh1)
+            
+        </script>
+		
+	</body>
+</html>
