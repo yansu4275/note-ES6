@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // *********************************** ES5继承
+        // console.log('------------------------------es5继承')
+
+        // // 父类
+        // function Person(name){
+        //     this.name = name
+        // }
+        // Person.prototype.showName = function () {
+        //     return `Person的方法`
+        // }
+
+        // // 子类
+        // function Child(name, job){
+        //     // ----------------------使用call继承person属性
+        //     Person.call(this, name)      
+        //     this.job = job
+        // }
+
+        // // --------------------------子类继承父类的方法
+        // Child.prototype = new Person()
+
+        // let c1 = new Child('严肃', '前端')
+        // console.log('子类继承父类的属性', c1.name)
+        // console.log('子类继承父类的方法：', c1.showName())
+        
+
+
+        // ****************************************** ES6继承
+        console.log('-----------------------------------es6继承')
+        // 父类
+        class Person{
+            constructor(name) {
+                this.name = name
+            }
+            showName(){
+                // return `父类的函数执行`
+                console.log(`父类的函数执行`)
+            }
+        }
+        // 子类
+        class Child extends Person{
+            constructor(name){
+                // 子类需要定义自己的属性时，要先用 super(属性名) 添加父类的属性
+                super(name)
+                this.job = 'qiandaun'
+            }
+            showName(){
+                // 子类定义一个跟父类同名的函数时，默认会覆盖，使用super.fn()可以让父类函数执行
+                super.showName()
+                console.log('子类的函数执行')
+            }
+        }
+
+        let c1 = new Child('name1')        
+        console.log(c1.name)
+        console.log(c1.job)
+
+        c1.showName()
+    </script>
+</body>
+</html>

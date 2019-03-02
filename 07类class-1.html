@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 之前用构造函数模拟类
+
+
+        // es6 类，没有提升更能，必须先定义在使用
+        // this指向这个class类
+        class Aaa{
+            // 构造函数，只要调用new，自动执行
+            constructor(name, job){
+                console.log(this)
+                console.log('new调用，自动执行')            
+                this.name = name
+                this.job = job
+            }
+            // 方法
+            showName(){
+                return this.name
+            }
+            showJob(){
+                return this.job
+            }
+        }
+
+        let aaa1 = new Aaa('yansu', '前端')
+        console.log(aaa1.showName(), aaa1.showJob())
+
+
+        // 也可以用定义变量写法，不推荐
+        let bbb = class{} 
+
+        let a = 'one'
+        let b = 'two'
+        class Ccc{
+            constructor(){}
+            [a+b](){
+                return '中括号拼接'
+            }
+        }
+        let ccc1 = new Ccc()
+        console.log(ccc1.onetwo())
+    </script>
+</body>
+</html>

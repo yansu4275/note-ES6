@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // new Promise(function(resolve, seject){
+    //     // resolve  --- 调用成功
+    //     // reject   --- 调用失败
+    // })
+
+    let a = 100;
+    let p1 = new Promise(function(resolve, reject){
+        if(a == 10){
+            resolve('成功')
+        } else {
+            reject('失败')
+        }
+    })
+    // p1.then(res => {
+    //     console.log(res)
+    // },err => {
+    //     console.log(err)
+    // })
+
+    p1.then(res => {
+        console.log(res)
+    }).catch(err => {
+        console.log(err)
+    })
+
+
+
+
+
+    // 直接使用 Promise.resolve() 和 Promise.reject() 好像更先执行
+
+
+    // Promise.resolve()----------------将现有的东西转成一个promise对象，resolve成功状态
+    let p2 = Promise.resolve('p2成功')
+    p2.then(res => {
+        console.log('Promise.resolve()----------------将现有的东西转成一个promise对象，resolve成功状态：', res)
+    })
+
+    // Promise.reject()----------------将现有的东西转成一个promise对象，reject失败状态
+    let p3 = Promise.reject('p2失败')
+    p3.catch(err=>{
+        console.log('Promise.reject()----------------将现有的东西转成一个promise对象，reject失败状态：', err)
+    })
+
+
+    // Promise.all([p1,p2,p3.....])----------把promise打包。扔到一个数组里，打包完还是一个promise对象
+    // 所有的promise都是resolve
+    let p4 = Promise.resolve('p4')
+    let p5 = Promise.resolve('p5')
+    // let p5 = Promise.reject('p5')
+    let p6 = Promise.resolve('p6')
+    Promise.all([p4, p5, p6]).then(res=>{
+        console.log('Promise.all([p1,p2,p3.....])----------把promise打包。扔到一个数组里，打包完还是一个promise对象：', res)
+
+        let [p4, p5, p6] = res
+        console.log(p4, p5, p6)
+    })
+
+
+    // Promise.race()-------------------只要有一个成功，就返回
+
+
+
+    let aaa = new promise((resolve, reject)=>{
+        $.ajax({
+            type:'get',
+            url:url,
+            success:function(data){
+                resolve(data)
+            },
+            error:function(err){
+                reject(err)
+            }
+        })
+    })
+</script>

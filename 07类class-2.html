@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 很少用
+        // class Aaa{
+        //     constructor(){
+        //     }
+        //     get a(){
+        //         return '0000'
+        //     }
+        //     set b(val){
+        //         console.log(`set：${val}`)
+        //     }
+        // }
+        // let aaa1 = new Aaa()
+        // console.log(aaa1.a)
+        // aaa1.b = 'bbbbbbbbbbb'
+
+        // 静态方法：就是类身上的方法，static aaa(){}
+        class Person{
+            constructor(){
+            }
+            showName(){
+                return '这是showName方法'
+            }
+            static aaa(){
+                return '这是静态方法'
+            }
+        }
+        let p1 = new Person()
+        console.log(p1.showName())
+        console.log(Person.aaa())
+    </script>
+</body>
+</html>

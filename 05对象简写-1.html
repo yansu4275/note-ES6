@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // let json= {
+    //     a:1,
+    //     b:2,
+    //     showA:function(){
+    //         return this.a
+    //     }
+    // }
+
+    // 简写
+    let a = 1;
+    let b = 2
+    let json = {
+        a,
+        b,
+        showA(){
+        }
+    }
+    console.log(json.a)
+
+    // Object.is()--------------------比较两个东西是否相等
+    console.log('Object.is( a, b)-----------------比较两个东西是否相等')
+    let c = Object.is(NaN, NaN)
+    console.log(c)              // true
+
+    let d = Object.is(+0, -0)
+    console.log(d)              // false
+
+
+    // Object.assign()------------------------合并对象，如果有重复，后面会覆盖前面的
+    // 用途：1，复制一个对象    2，合并对象
+
+    console.log('Object.assign(目标对象，源头对象1，源头对象2...)-----------合并对象,')
+
+    let e1 = {a:1}
+    let e2 = {a:2, b:2}
+    let e3 = {b:3, c:3}
+    let e = Object.assign({}, e1, e2, e3)
+    console.log(e)
+
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: orange;
+            position: fixed;
+        }
+        .left{
+            left: 0;
+        }
+        .right{
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='aaa' class="box left">1111111</div>
+    <div id='bbb' class="box right">22222</div>
+</body>
+
+</html>
+<script>
+    // 普通拖拽----父类
+    class Drag{
+        constructor(id){
+            this.div = document.querySelector(id)
+            // 定义坐标
+            this.x = 0
+            this.y = 0
+            // 默认执行down
+            this.fnDown()
+        }
+        fnDown(){
+            this.div.onmousedown = function (e) {
+                // 点击时光标相对于div坐标
+                this.x = e.clientX - this.div.offsetLeft
+                this.y = e.clientY - this.div.offsetTop
+                
+                // 在document上添加鼠标异动事件
+                document.onmousemove = this.fnMove.bind(this)
+                document.onmouseup = this.fnUp.bind(this)
+
+                // 阻止默认事件（选中文字）
+                return false
+                
+                // 修改this指向Drag，否则，里面的this就是指向div
+            }.bind(this)
+        }
+        fnMove(e){
+            // 获取移动时div坐标
+            this.div.style.left = e.clientX - this.x + 'px'
+            this.div.style.top = e.clientY - this.y + 'px'
+            console.log(this.div.style.left, this.div.style.top)
+        }
+        fnUp(){
+            // 鼠标抬起，事件解除
+            document.onmousemove = null
+            document.onmouseup = null
+        }
+    }
+
+    // 限制范围
+    class limitDrag extends Drag{
+        fnMove(e){
+            // 调用父类事件
+            super.fnMove(e)
+            
+            // 限制范围
+            if (this.div.offsetLeft <= 0) {
+                this.div.style.left = 0
+            }
+            if (this.div.offsetTop <= 0) {
+                this.div.style.top = 0
+            }
+            if(this.div.offsetLeft+this.div.offsetWidth >= document.documentElement.clientWidth){
+                this.div.style.left = document.documentElement.clientWidth - this.div.offsetWidth + 'px'
+            }
+            if(this.div.offsetTop+this.div.offsetHeight >= document.documentElement.clientHeight){
+                this.div.style.top = document.documentElement.clientHeight - this.div.offsetHeight + 'px'
+            }
+        }
+    }
+
+    new Drag('#aaa')
+    new limitDrag('#bbb')
+</script>
