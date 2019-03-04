@@ -44,11 +44,12 @@
         }
         fnDown(){
             this.div.onmousedown = function (e) {
+                console.log(e)
                 // 点击时光标相对于div坐标
                 this.x = e.clientX - this.div.offsetLeft
                 this.y = e.clientY - this.div.offsetTop
                 
-                // 在document上添加鼠标异动事件
+                // 在document上添加鼠标移动事件
                 document.onmousemove = this.fnMove.bind(this)
                 document.onmouseup = this.fnUp.bind(this)
 

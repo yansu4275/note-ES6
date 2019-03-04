@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let symbol = Symbol('aaa')
+    console.log(symbol)
+
+    console.log(`数据类型：${typeof symbol}`)
+
+    let json ={
+        aaa: 'aaa',
+        bbb: 'bbb',
+        [symbol]: '这是一个symbol'
+    }
+    for (const key in json) {
+        console.log(key)
+    }
+    // 注意：
+        // 1：定义 Symnol 前面不能加 new，不像 new Number()
+        // 2：Symbol()返回是一个唯一值
+            // 坊间传说，做一个key，定义一些唯一或者私有的东西
+        // 3：是一个单独的数据类型
+        // 4：如果用symbol作为key，使用for in循环，出不来 
+</script>

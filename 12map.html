@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // map 用法类似 set，多了个get()功能
+        // set 里面放的是数组
+        // map 类似 json
+    // map：类似json，但是json的键（key）只能是字符串
+        // map的key可以使任意类型***********
+    
+    // map.set(key,val),添加
+    let map1 =  new Map()
+    map1.set('a','aaa')
+    console.log(map1)
+
+    console.log('-------------------------obj作key')
+    let map2 =  new Map()
+    let json = {
+        a:1,
+        a:2
+    }
+    map2.set(json, 'bbb')
+    console.log(map2)
+
+    console.log('-------------------------布尔值作key')
+    let map3 = new Map()
+    map3.set(true, json)
+    console.log(map3)
+
+
+    // map.get(key),获取
+    console.log('----------------------------map.get(key),获取')
+    console.log(map2.get(json))
+
+
+    // map.delete(key)
+    console.log('----------------------------map.delete(key),删除')
+    map1.delete('a')
+    console.log(map1)
+
+
+    console.log('----------------------------map.has(key),判断')
+    console.log(map2.has(json))
+
+
+    console.log('----------------------------map.clear(key),清空')
+    map2.clear()
+    console.log(map2)
+
+
+    console.log('----------------------------循环')
+    let map4 = new Map()
+    map4.set('a','aaa')
+    map4.set(json,'bbb')
+    map4.set('ccc',json)
+    for (const [key,val] of map4) {
+        console.log(key, val)
+    }
+
+
+    // map4.forEach((val,key) => {
+    //     console.log(key, val)
+    // });
+
+
+
+
+
+    console.log('----------------------------------------')
+    console.log('----------------------------------------')
+    console.log('----------------------------------------')
+    console.log('----------------------------------------')
+    
+    // WeakMap()：key 只能是对象，不能是字符串
+    let map5 = new WeakMap()
+    map5.set(json, 'aaa')
+    // map5.set('a', 'bbb')
+    console.log(map5)
+
+
+
+</script>

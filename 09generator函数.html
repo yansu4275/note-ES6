@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    // generator 函数
+    // 解决异步，深度嵌套的问题
+
+    // 定义
+    function * aaa(){
+        yield 'hello'
+        yield 'world'
+        return 'HELLOW WORLD'
+    }
+    // 调用
+    // 每次使用next()调用，返回 {value:'', done:布尔值}
+    // done 为 false，表示函数还没执行完
+    let aaa1 = aaa()
+    console.log(aaa1.next())
+    console.log(aaa1.next())
+    console.log(aaa1.next())
+
+    // 使用 for of 遍历时，只能遍历 yield ，无法遍历 return
+    let aaa2 = aaa()
+    for (const val of aaa2) {
+        console.log(val)
+    }
+
+
+    // 配合结构赋值使用
+    let aaa3 = aaa()
+    let [a, b, c] = aaa3
+    console.log(a, b ,c)
+
+</script>

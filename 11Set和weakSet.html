@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // set 数据结构，里面放的是数组
+    // 类似数组，不能有重复，有话会被删掉
+    let set1 = new Set(['a','b','a'])
+    console.log(set1)
+
+    // 循环，推荐使用forEach
+    // set 数据的key值和value值时一样的******************
+    for (const val of set1) {
+        console.log(val)
+    }
+    set1.forEach((val,i) => {
+        console.log(val, i)
+    });
+
+    // 添加
+    console.log('set.add(1111)---------------添加')
+    set1.add('c')
+    console.log(set1)
+
+    // 删除
+    console.log('set.delete(1111)---------------删除')
+    set1.delete('b')
+    console.log(set1)
+
+    // 判断是否有某内容
+    console.log('set.has(1111)---------------判断是否有某项')
+    console.log(set1.has('a'))
+
+    // 数据长度
+    console.log('set.size---------------长度')
+    console.log(set1.size)
+
+    // 清除所有
+    console.log('set.clear()---------------清除所有')
+    set1.clear()
+    console.log(set1)
+
+
+
+
+    // new WeakSet({})--------不能直接添加json，需要使用add添加json
+    // -----------------------------没啥用
+    let aaa = new WeakSet()
+    let json = {
+        a:'aaaa',
+        b:'bbbb',
+        c:'cccc'
+    }
+    aaa.add(json)
+    console.log(aaa)
+    // for (const key in aaa) {
+    //     console.log(0)    
+    //     console.log(key)
+    // }
+</script>
