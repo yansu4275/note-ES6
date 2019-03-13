@@ -16,7 +16,7 @@
     //     // reject   --- 调用失败
     // })
 
-    let a = 100;
+    let a = 10;
     let p1 = new Promise(function(resolve, reject){
         if(a == 10){
             resolve('成功')
@@ -32,6 +32,10 @@
 
     p1.then(res => {
         console.log(res)
+        return 100
+    }).then(res=>{
+        a++
+        console.log(a)
     }).catch(err => {
         console.log(err)
     })
