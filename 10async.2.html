@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script src="js/jquery-3.2.0.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+	$(function(){
+		async function aaa(){
+			console.log('aaa')
+			try{
+				// 执行完一个下一个再执行
+				let a = await reqUser()
+				let b = await reqImg()
+			}catch(e){
+			}
+			
+		}
+		aaa()
+		async function reqUser(){
+			return new Promise((resolve, reject)=>{
+				$.ajax('https://api.kags.com/fund/case/118',{
+					dataType:'json',//服务器返回json格式数据
+					type:'get',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						resolve(data)
+					},
+				});
+			})
+		}
+		async function reqImg(){
+			return new Promise((resolve, reject)=>{
+				return $.ajax('https://api.kags.com/fund/case/118/image',{
+					dataType:'json',//服务器返回json格式数据
+					type:'get',//HTTP请求类型
+					success:function(data){
+						console.log(data);
+						resolve(data)
+					},
+				});
+			})
+		}
+	})
+</script>

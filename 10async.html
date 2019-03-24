@@ -11,17 +11,17 @@
 </body>
 </html>
 <script>
-    // async function aaa() {
-    //     return 'aaaaaaaa'
-    //     throw new Error('aaa出错')
-    // }
+    async function aaa() {
+        return 'aaaaaaaa'
+        // throw new Error('aaa出错')
+    }
 
-    // // async 返回的是一个promise
-    // aaa().then(res=>{
-    //     console.log(res)
-    // }).catch(err=>{
-    //     console.log(err)
-    // })
+    // async 返回的是一个promise
+    aaa().then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err)
+    })
 
     // 只要 await 语句后面的promise状态变成reject，那么async函数会中断执行
         // 使用try catch 解决async中抛出错误，影响后续代码
@@ -41,16 +41,16 @@
 
 
 
-    async function bbb() {
-        await Promise.resolve('bbb')
-        // await Promise.reject('bbb出错')
-        let b1 = await Promise.resolve('bbb')
-        console.log(b1)
-    }
-    bbb().then(res=>{
-        // res 指的是函数里的return值，而不是 resolve
-        // console.log(res)
-    }).catch(err=>{
-        console.log(err)
-    })
+//     async function bbb() {
+//         await Promise.resolve('bbb')
+//         // await Promise.reject('bbb出错')
+//         let b1 = await Promise.resolve('bbb')
+//         console.log(b1)
+//     }
+//     bbb().then(res=>{
+//         // res 指的是函数里的return值，而不是 resolve
+//         // console.log(res)
+//     }).catch(err=>{
+//         console.log(err)
+//     })
 </script>
