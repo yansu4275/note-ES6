@@ -5,36 +5,67 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<style type="text/css">
+		.content{
+			display: flex;
+			justify-content: space-around;
+		}
+		.btn{
+			background: #FFA500;
+		}
+		.box{
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="content">
+		<div class="aaa">
+			<span class="btn">11111111111</span>
+			<div class="box">
+				<p>1111111</p>
+				<p>1111111</p>
+				<p>1111111</p>
+				<p>1111111</p>
+				<p>1111111</p>
+			</div>
+		</div>
+		<div class="aaa">
+			<span  class="btn">2222222222</span>
+			<div class="box">
+				<p>2222222</p>
+				<p>2222222</p>
+				<p>2222222</p>
+				<p>2222222</p>
+				<p>2222222</p>
+			</div>
+		</div>
+		<div class="aaa">
+			<span class="btn">333333333333</span>
+			<div class="box">
+				<p>3333333</p>
+				<p>3333333</p>
+				<p>3333333</p>
+				<p>3333333</p>
+				<p>3333333</p>
+				<p>3333333</p>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
 <script type="text/javascript">
-    var data = [{
-        title: '标题一',
-        read: 100
-    }, {
-        title: '标题二',
-        read: 100
-    }, {
-        title: '标题三',
-        read: 100
-    }, {
-        title: '标题四',
-        read: 100
-    }, {
-        title: '标题五',
-        read: 100
-    }, ]
-
-    for (i = 0; i < data.length; i++) {
-        if (data[i].title == '标题一') {
-            console.log(i)
-        } else {
-
-        }
-
-    }
+	$('.aaa>.btn').click(function(){
+		$(this).next().toggle()
+	})
+	$('.aaa .box p').click(function(){
+		apply()
+		$(this).parent().hide()
+	})
+	
+	function apply(){
+		console.log('触发函数')
+	}
 </script>

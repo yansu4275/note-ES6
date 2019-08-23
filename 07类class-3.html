@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 静态方法：就是类身上的方法，static aaa(){}
+        class Person{
+            constructor(a){
+				// this.aaa = 222
+				// console.log(a)
+				this.funb(a)
+            }
+			
+			// 构造函数自定义回调
+            funa(a){
+				console.log(a)
+				if ( a.success ) {
+					a.success()
+				} else {
+					console.log('没有success')
+				}
+				this.funb(a)
+            }
+			funb(a){
+				console.log(a, 'funb')
+			}
+            static aaa(){
+                return '这是静态方法'
+            }
+        }
+        let p1 = new Person()
+		// p1.funa(456)
+		
+		
+		p1.funa({
+			aaa: 1,
+			bbb: 2,
+			ccc: 4,
+			success:()=>{
+				console.log('success')
+			}
+		})
+    </script>
+</body>
+</html>
